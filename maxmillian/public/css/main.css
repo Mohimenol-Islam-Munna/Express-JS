@@ -14,3 +14,15 @@ h2 {
   color: white;
   padding: 20px;
 }
+
+.content {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.content-body {
+  margin: 20px auto;
+}
+.content-body > p {
+  margin-top: 10px;
+}

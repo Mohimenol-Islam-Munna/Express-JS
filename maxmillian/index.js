@@ -9,7 +9,12 @@ app.use(express.static("public"));
 // Home Page
 app.get("/", (req, res) => {
   console.log(req.method);
-  res.render("index");
+  res.render("index", {
+    id: 1,
+    author: "Mohimenol Islam Munna",
+    campus: "PUST",
+    designation: "Full Stack Developer",
+  });
 });
 
 // Admin Page
