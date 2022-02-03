@@ -1,0 +1,16 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  /* box-sizing: border-box; */
+}
+
+h2 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.navigation {
+  background-color: blueviolet;
+  color: white;
+  padding: 20px;
+}

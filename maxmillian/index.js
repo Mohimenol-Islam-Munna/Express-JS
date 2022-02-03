@@ -1,18 +1,21 @@
 const express = require("express");
+
+const adminRouter = require("./routes/admin");
+
 const app = express();
+app.set("view engine", "ejs");
+app.use(express.static("public"));
 
-const PORT = 3000;
-
-app.use((req, res, next) => {
-  console.log("express js in middleware");
-  next();
+// Home Page
+app.get("/", (req, res) => {
+  console.log(req.method);
+  res.render("index");
 });
 
-app.use((req, res, next) => {
-  console.log("second middleware");
-  res.send("Express js Middleware");
-});
+// Admin Page
+app.use("/admin", adminRouter);
 
-app.listen(3000, (err) => {
-  console.log(`Server is running at PORT ${PORT}`);
+const PORT = "3000";
+app.listen(PORT, (res, err) => {
+  console.log(`Server is running at PORT ${PORT}...`);
 });
