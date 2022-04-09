@@ -13,5 +13,4 @@ router.get("/contact", (req, res) => {
   res.send("student contact");
 });
 
-
-module.exports = router
+module.exports = router;

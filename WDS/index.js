@@ -5,6 +5,15 @@ const studentRoutes = require("./routes/students");
 
 app.set("view engine", "ejs");
 
+app.use((req, res, next) => {
+  console.log("This function will execute for all incoming request");
+  next();
+});
+
+app.use((req, res, next) => {
+  res.send("<h2>2 This function will execute for all incoming request</h2>");
+});
+
 app.get("/", (req, res) => {
   // res.send("hello world");
   // res.json({ name: "munna" });
@@ -13,8 +22,5 @@ app.get("/", (req, res) => {
 });
 
 app.use("/student", studentRoutes);
-app.use((req, res) => {
-  console.log("This function will execute for all incoming request");
-});
 
 app.listen(3000);
