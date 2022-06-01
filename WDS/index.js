@@ -12,7 +12,7 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   res.send("<h2>2 This function will execute for all incoming request</h2>");
-});
+}); 
 
 app.get("/", (req, res) => {
   // res.send("hello world");
