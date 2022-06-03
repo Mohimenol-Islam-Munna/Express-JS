@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const dbConfig = require("./database/databaseConfig");
 // import routes
 const playerRoutes = require("./routes/playerRoutes");
+const authRouter = require("./routes/authRoutes");
 
 // body parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,18 +16,17 @@ app.set("view engine", "ejs");
 // set static file
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  console.log("req method ::", req.method);
-  res.render("index", { name: "Mohimenol Islam Munna", campus: "PUST" });
-});
-
-app.get("/about", (req, res) => {
-  console.log("req method ::", req.method);
-  res.send("about page ");
-});
+// --------- routes -----------
+// auth routes
+app.use("/", authRouter);
 
 // player routes
 app.use("/player", playerRoutes);
+
+// home route
+app.get("/", (req, res) => {
+  res.render("index", { name: "Mohimenol Islam Munna", campus: "PUST" });
+});
 
 // // database connection
 // mongoose.connect(dbConfig.URL, (err) => {
